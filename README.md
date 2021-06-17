@@ -19,15 +19,16 @@
 
 ## items テーブル
 
-|    Column       | Type       | Options                        |
-| --------------- | ---------- | -----------------------------^ |
-| seller_name     | string     | null:                          |
-| price           | integer    | null:                          |
-| burden_id       | string     | null: false, foreign_key: true |
-| state_id        | string     | null: false, foreign_key: true |
-| category_id     | date       | null: false, foreign_key: true |
-| Days_to_ship_id | string     | null: false, foreign_key: true |
-| user_id         | references | null: false, foreign_key: true |
+|    Column         | Type       | Options                        |
+| ----------------- | ---------- | -----------------------------^ |
+| seller_name       | string     | null: false                    |
+| price             | integer    | null: false                    |
+| area_id           | integer    | null: false                    |
+| burden_id         | integer    | null: false                    |
+| delivery_state_id | integer    | null: false                    |
+| category_id       | integer    | null: false                    |
+| day_to_ship_id    | integer    | null: false                    |
+| user              | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -35,12 +36,10 @@
 
 ## orders テーブル
 
-| Column      | Type   | Options                   |
-| ----------- | ------ | ------------------------- |
-| nickname    | string | null: false               |
-| email       | string | null: false, unique:true  |
-| Birth_month | date   | null: false               |
-| birth_day   | date   | null: false               |
+| Column          | Type       | Options                                |
+| --------------- | ---------- | -------------------------------------- |
+| user            | references | null: false, foreign_key: true |
+| item            | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -48,13 +47,16 @@
 
 ## address テーブル
 
-| Column       | Type   | Options                         |
-| ------------ | ------ | ------------------------------- |
-| Postal_code  | date   |  null: false                    |
-| from_city    | string |  null: false                    |
-| from_town    | string |  null: false                    |
-| from_address | string |  null: false                    |
-| orders_id    | string |  null: false, foreign_key: true |
+| Column        | Type       | Options                         |
+| ------------- | ---------- | ------------------------------- |
+| postal_code   | string     |  null: false                    |
+| area_id       | integer    |  null: false                    |
+| from_city     | string     |  null: false                    |
+| from_town     | string     |  null: false                    |
+| from_address  | string     |  null: false                    |
+| building_name | string     |                                 |
+| phone_number  | string     |  null: false                    |
+| order         | references |  null: false, foreign_key: true |
 
 ### Association
 
