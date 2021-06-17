@@ -16,12 +16,14 @@
 ### Association
 
 - has_many :items
+- has_many :order
 
 ## items テーブル
 
 |    Column         | Type       | Options                        |
 | ----------------- | ---------- | -----------------------------^ |
-| seller_name       | string     | null: false                    |
+| Product name      | string     | null: false                    |
+| description_name  | text       | null: false                    |
 | price             | integer    | null: false                    |
 | area_id           | integer    | null: false                    |
 | burden_id         | integer    | null: false                    |
@@ -32,6 +34,7 @@
 
 ### Association
 
+- belongs_to :users
 - belongs_to :orders
 
 ## orders テーブル
@@ -43,7 +46,9 @@
 
 ### Association
 
-- belongs_to :from
+- has_many :users
+- has_many :items
+- belongs_to :address
 
 ## address テーブル
 
