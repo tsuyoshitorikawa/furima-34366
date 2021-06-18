@@ -34,7 +34,7 @@
 
 ### Association
 
-- has_one :user
+- belongs_to :user
 - has_one :order
 
 ## orders テーブル
@@ -57,7 +57,6 @@
 | postal_code   | string     |  null: false                    |
 | area_id       | integer    |  null: false                    |
 | from_city     | string     |  null: false                    |
-| from_town     | string     |  null: false                    |
 | from_address  | string     |  null: false                    |
 | building_name | string     |                                 |
 | phone_number  | string     |  null: false                    |
