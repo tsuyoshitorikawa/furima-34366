@@ -16,13 +16,13 @@
 ### Association
 
 - has_many :items
-- has_many :order
+- has_many :orders
 
 ## items テーブル
 
 |    Column         | Type       | Options                        |
 | ----------------- | ---------- | -----------------------------^ |
-| Product name      | string     | null: false                    |
+| product name      | string     | null: false                    |
 | description_name  | text       | null: false                    |
 | price             | integer    | null: false                    |
 | area_id           | integer    | null: false                    |
@@ -34,8 +34,8 @@
 
 ### Association
 
-- belongs_to :users
-- belongs_to :orders
+- has_one :user
+- has_one :order
 
 ## orders テーブル
 
@@ -46,9 +46,9 @@
 
 ### Association
 
-- has_many :users
-- has_many :items
-- belongs_to :address
+- belongs_to :user
+- belongs_to :item
+- has_one :address
 
 ## address テーブル
 
@@ -65,4 +65,4 @@
 
 ### Association
 
-- has_one :orders
+- belongs_to :order
