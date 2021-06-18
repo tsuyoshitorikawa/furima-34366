@@ -22,7 +22,7 @@
 
 |    Column         | Type       | Options                        |
 | ----------------- | ---------- | -----------------------------^ |
-| product name      | string     | null: false                    |
+| product_name      | string     | null: false                    |
 | description_name  | text       | null: false                    |
 | price             | integer    | null: false                    |
 | area_id           | integer    | null: false                    |
@@ -50,7 +50,7 @@
 - belongs_to :item
 - has_one :address
 
-## address テーブル
+## addresses テーブル
 
 | Column        | Type       | Options                         |
 | ------------- | ---------- | ------------------------------- |
