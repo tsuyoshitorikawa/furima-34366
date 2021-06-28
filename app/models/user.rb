@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  has_many :orders
+  # has_many :orders
 
   validates :name,                 presence: true
   validates :password,             format: { with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
@@ -16,8 +16,8 @@ class User < ApplicationRecord
   end
 
   with_options presence: true, format: {with: /\A[ァ-ヶー]+\z/, message: "is invalid. Input full-width katakana characters."} do
-    validates :first_name_kana,      presence: true
-    validates :last_name_kana,       presence: true
+    validates :first_name_kana
+    validates :last_name_kana
   end
 
   validates :birthday,             presence: true
