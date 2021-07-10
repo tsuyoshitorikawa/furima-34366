@@ -44,7 +44,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
 
-      it 'idに1が選択されている場合は出品できない' do
+      it 'category_idに1が選択されている場合は出品できない' do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Category can't be blank"
@@ -56,7 +56,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Delivery state can't be blank"
       end
 
-      it 'idに1が選択されている場合は出品できない' do
+      it 'delivery_state_idに1が選択されている場合は出品できない' do
         @item.delivery_state_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Delivery state can't be blank"
@@ -68,7 +68,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Burden can't be blank"
       end
 
-      it 'idに1が選択されている場合は出品できない' do
+      it 'burden_idに1が選択されている場合は出品できない' do
         @item.burden_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Burden can't be blank"
@@ -80,7 +80,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Area can't be blank"
       end
 
-      it 'idに1が選択されている場合は出品できない' do
+      it 'area_idに1が選択されている場合は出品できない' do
         @item.area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Area can't be blank"
@@ -92,16 +92,10 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include "Day to ship can't be blank"
       end
 
-      it 'idに1が選択されている場合は出品できない' do
+      it 'day_to_ship_idに1が選択されている場合は出品できない' do
         @item.day_to_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include "Day to ship can't be blank"
-      end
-
-      it '販売価格についての情報がなければ登録できない' do
-        @item.price = ''
-        @item.valid?
-        expect(@item.errors.full_messages).to include "Price can't be blank"
       end
 
       it "商品価格が空だと出品できない" do
