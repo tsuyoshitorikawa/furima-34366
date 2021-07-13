@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
   
   def index
     @items = Item.includes(:user).order("created_at DESC")
@@ -16,6 +16,25 @@ class ItemsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @item = Item.find(params[:id])
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    @item.update(@item_params)
+    redirect_to item_path
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
   end
 
   def item_params
