@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, only: :index
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_item, only: [:index, :create]
   before_action :contributor_confirmation, only: [:index, :create]
 
@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     if @order_address.valid?
       pay_order_address
       @order_address.save
-        redirect_to root_path @item.order.blank?
+        redirect_to root_path
     else
       render :index
     end
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:postal_code, :area_id, :from_city, :from_address, :building_name, :phone_number, :user_id, :item_id).merge(user_id: current_user.id, token: params[:token])
+    params.permit(:postal_code, :area_id, :from_city, :from_address, :building_name, :phone_number, :item_id).merge(user_id: current_user.id, token: params[:token])
   end
 
   def pay_order_address
