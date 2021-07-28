@@ -10,7 +10,7 @@ class OrderAddress
     validates :user_id
     validates :item_id
     validates :token
-    validates :phone_number,  numericality: {only_integer: true, length: {maximum: 11}, message: "is invalid"}
+    validates :phone_number, format: {with: /\A\d{10,11}\z/}
   end
 
   def save

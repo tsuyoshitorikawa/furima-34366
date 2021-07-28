@@ -20,6 +20,12 @@ class ItemsController < ApplicationController
     end
   end
 
+  def edit
+    if current_user.id == @item.user_id || @item.order.present?
+      redirect_to root_path
+    end
+  end
+
   def update
      @item.update(item_params)
     if @item.save
