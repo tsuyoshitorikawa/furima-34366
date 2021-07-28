@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:edit, :show, :update, :destroy]
+  before_action :present?, omly: [:edit, :create]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
 
@@ -17,12 +18,6 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render :new
-    end
-  end
-
-  def edit
-    if @item.order.present?
-      redirect_to root_path
     end
   end
 
@@ -44,6 +39,12 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+  end
+
+  def present?
+    if @item.order.present?
+      redirect_to root_path
+    end
   end
 
   def item_params
