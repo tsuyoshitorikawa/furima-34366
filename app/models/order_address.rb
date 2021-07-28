@@ -7,7 +7,6 @@ class OrderAddress
     validates :area_id,      numericality: {other_than: 1, message: "can't be blank"}
     validates :from_city
     validates :from_address
-    validates :building_name
     validates :user_id
     validates :item_id
     validates :token

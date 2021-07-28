@@ -13,6 +13,10 @@ RSpec.describe OrderAddress, type: :model do
        it '購入時に建物名以外の項目が埋まっていれば購入できる' do
          expect(@order_address).to be_valid
        end
+
+       it '購入時に建物名の項目が埋まっていなくても購入できる' do
+         expect(@order_address).to be_valid
+       end
      end
 
 
@@ -69,7 +73,7 @@ RSpec.describe OrderAddress, type: :model do
       it "tokenが空では購入できないこと" do
         @order_address.token = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("Token can't be blank")
+        expect(@order_address.errors.full_messages).to include "Token can't be blank"
       end
     end
   end
