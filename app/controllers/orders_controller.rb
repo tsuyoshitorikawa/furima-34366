@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :contributor_confirmation, only: [:index, :create]
 
   def index
-    @order_address
+    @order_address = OrderAddress.new
   end
 
 

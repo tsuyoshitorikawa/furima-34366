@@ -45,8 +45,6 @@ class ItemsController < ApplicationController
   end
 
   def contributor_confirmation
-    def contributor_confirmation
-      redirect_to root_path, action: :index if current_user.id ！= @item.user_id || @item.order.present?
-    end
+     redirect_to root_path, action: :index if current_user.id ！= @item.user_id || @item.order.present?
   end
 end
