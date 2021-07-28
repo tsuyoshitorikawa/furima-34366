@@ -3,9 +3,6 @@ class OrdersController < ApplicationController
   before_action :set_item, only: [:index, :create]
   before_action :contributor_confirmation, only: [:index, :create]
 
-  def index
-    @order_address = OrderAddress.new(order_params)
-  end
 
   def create
       @order_address = OrderAddress.new(order_params)
